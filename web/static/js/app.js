@@ -33,5 +33,7 @@ if (elmDiv) {
   app.ports.removeLocalJWT.subscribe(function() {
     localStorage.removeItem('jwt');
   });
-  console.log(localJWT);
+  app.ports.appTitle.subscribe(function(newTitle) {
+    document.title = newTitle;
+  });
 }
