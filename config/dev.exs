@@ -41,3 +41,6 @@ config :phoenix_elm_boilerplate, PhoenixElmBoilerplate.Repo,
   database: "phoenix_elm_boilerplate_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :phoenix_elm_boilerplate, PhoenixElmBoilerplate.Mailer,
+  adapter: Bamboo.LocalAdapter
