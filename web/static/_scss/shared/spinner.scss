@@ -1,0 +1,24 @@
+$spinkit-spinner-margin: 20px auto !default;
+$spinkit-size: 20px !default;
+$spinkit-spinner-color: #fff !default;
+
+@keyframes sk-pulseScaleOut {
+  0% {
+    transform: scale(0);
+  } 100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+.shared-spinner {
+  .sk-spinner-pulse {
+    width: $spinkit-size;
+    height: $spinkit-size;
+    margin-right: $small-padding;
+    margin-left: $small-padding;
+    background-color: $spinkit-spinner-color;
+    border-radius: 100%;
+    animation: sk-pulseScaleOut 1.0s infinite ease-in-out;
+  }
+}

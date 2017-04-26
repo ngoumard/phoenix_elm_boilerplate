@@ -1,0 +1,10 @@
+.landing-navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: $double-padding $triple-padding;
+  align-items: center;
+
+  .signup {
+    margin-right: $base-padding;
+  }
+}

@@ -1,0 +1,69 @@
+.forms-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: $base-padding;
+
+  > .input {
+    display: flex;
+    flex: 1;
+    padding: 0 $base-padding;
+    min-height: $min-height;
+    box-shadow: none;
+    line-height: $line-height-input;
+    font-size: $font-size-small;
+    letter-spacing: $letter-spacing-spaced;
+    border-radius: $border-radius-button;
+    border: 2px solid $color-border-input;
+    transition: all .2s ease;
+
+    &:hover {
+      border-color: $gray;
+    }
+
+    &:focus, &:active {
+      border-color: rgba($color-primary, $opacity-border-color);
+    }
+
+    &.warning {
+      border-color: rgba($color-warning, $opacity-border-color);
+    }
+
+    &.error {
+      border-color: rgba($color-danger, $opacity-border-color);
+    }
+  }
+
+  &.small {
+    > .input {
+      padding: 0 $small-padding;
+      min-height: $min-height-small;
+      font-size: $font-size-smaller;
+    }
+  }
+
+  // hacky solution to get a stylish button instead of default stuff
+  &.file {
+    > .input {
+      display: none;
+    }
+
+    > .label-file {
+      display: flex;
+      align-items: center;
+      align-self: flex-start;
+      cursor: pointer;
+      margin-top: $base-padding;
+      background-color: $color-primary;
+      border-radius: $border-radius-button;
+      color: $color-snow;
+      font-family: $font-family-semibold;
+      padding: $small-padding $base-padding;
+      font-size: $font-size-small;
+      min-height: $min-height-small;
+      padding: $small-padding $base-padding;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+      letter-spacing: $letter-spacing-spaced;
+    }
+  }
+}

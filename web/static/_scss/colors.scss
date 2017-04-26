@@ -1,0 +1,31 @@
+$black: #111;
+$gray-dark: #1b1b1b;
+$gray-semi-dark: #333;
+$gray: #a8b2bb;
+$gray-light: #d0d0d0;
+$gray-xlight: #f9fafb;
+
+$color-primary: #176FD4;
+// $color-primary-medium: #46B1EB;
+// $color-primary-semi-light: #64BFED;
+$color-primary-semi-light: #46B1EB;
+$color-primary-lighter: #F5FFFE;
+
+// $color-success: #22D417;
+$color-success: adjust-hue($color-primary, -90%);
+$color-snow: #fff;
+$color-frost: lighten($color-primary, 50%);
+$color-placeholder: #D2F1FA;
+$color-border-input: $gray-light;
+$color-danger: #F40033;
+$color-warning: #FFA42F;
+$background-dark: darken($color-primary, 25%);
+
+// dashboard
+$sidebar-background: #f0f6fc;
+
+$color-body: $gray-dark;
+
+$color-hover-primary: $color-primary-lighter;
+
+$button-darken: 6%;

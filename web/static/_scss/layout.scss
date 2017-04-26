@@ -1,0 +1,31 @@
+h1, h2, h3, h4, h5 {
+  font-family: $font-family-semibold;
+}
+
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+}
+
+html {
+  min-height: 100vh;
+  display: flex;
+}
+
+body {
+  font-size: $font-size-body;
+  display: flex;
+  flex: 1;
+  // font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "CalibreReg", "Helvetica Neue", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: $gray-dark;
+}
+
+body > #root {
+  display: flex;
+  flex: 1;
+}
+
+*:focus {
+  outline: 0;
+}

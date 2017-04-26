@@ -1,0 +1,40 @@
+$small-padding: 8px;
+$tiny-padding: $small-padding / 2;
+$base-padding: $small-padding * 2;
+$double-padding: $small-padding * 4;
+$triple-padding: $small-padding * 6;
+
+$break-point-desktop: 1120px;
+$break-point-tablet: 840px;
+$break-point-phone: 520px;
+
+$max-width-desktop: 1008px;
+
+$border-radius-button: 3px;
+$border-radius-input: 3px;
+
+$font-size-tiny: 0.9rem;
+$font-size-smaller: 1rem;
+$font-size-small: 1.1rem;
+$font-size-body: 1.2rem;
+$font-size-large: 1.3rem;
+$font-size-larger: 1.7rem;
+$font-size-header: 2.5rem;
+
+$font-size-main-header: 4rem;
+$font-size-main-header-small: 3.3rem;
+$letter-spacing-main-header: -1.23px;
+
+$line-height-spaced: 1.41;
+$line-height-xspaced: 1.82;
+$line-height-input: $line-height-xspaced;
+
+$letter-spacing-spaced: 0.025rem;
+$letter-spacing-narrow: -0.025rem;
+
+$min-height: 52px;
+$min-height-small: 40px;
+
+$header-height: 64px;
+
+$opacity-border-color: 0.5;

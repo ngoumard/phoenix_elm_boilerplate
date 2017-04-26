@@ -1,0 +1,41 @@
+/* This file is for your main application css. */
+@import "../_scss/normalize";
+
+// variables
+@import "../_scss/variables.scss";
+@import "../_scss/colors.scss";
+@import "../_scss/metrics.scss";
+// @import "./svg.scss";
+
+@import "../_scss/fonts.scss";
+
+@import "../_scss/typography.scss";
+
+@import "../_scss/layout.scss";
+
+@import "../_scss/landing/landing.scss";
+@import "../_scss/landing/hero.scss";
+@import "../_scss/landing/navbar.scss";
+
+@import "../_scss/auth/signup.scss";
+@import "../_scss/auth/login.scss";
+
+@import "../_scss/shared/link.scss";
+@import "../_scss/shared/button.scss";
+@import "../_scss/shared/spinner.scss";
+
+@import "../_scss/forms/form.scss";
+@import "../_scss/forms/input.scss";
+@import "../_scss/forms/label.scss";
+//
+// @import "../_scss/landing/landing.scss";
+// @import "../_scss/landing/landing-navbar.scss";
+// @import "../_scss/landing/landing-hero.scss";
+//
+// @import "../_scss/shared/link.scss";
+// @import "../_scss/shared/spinner.scss";
+// @import "../_scss/shared/button.scss";
+//
+// @import "../_scss/login/login.scss";
+//
+// @import "../_scss/forms/input.scss";
