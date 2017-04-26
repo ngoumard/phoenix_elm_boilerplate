@@ -1,0 +1,56 @@
+.landing-footer {
+  background-color: $background-dark;
+  padding: $base-padding $double-padding;
+
+  > .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .header {
+      color: #fff;
+      font-family: $font-family-semibold;
+      font-size: $font-size-large;
+      line-height: $line-height-spaced;
+    }
+
+    .value-proposition {
+      color: #fff;
+      font-size: $font-size-large;
+      font-style: italic;
+    }
+
+    .container-text {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: $base-padding;
+    }
+
+    .container-button {
+      margin-left: $base-padding;
+    }
+  }
+
+  @media (min-width: $break-point-desktop) {
+    > .container {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (min-width: $break-point-phone) {
+    > .container {
+      flex-direction: row;
+
+      .container-text {
+        text-align: inherit;
+        padding-bottom: 0;
+      }
+
+      .container-button {
+        padding-left: $base-padding;
+      }
+    }
+  }
+}
