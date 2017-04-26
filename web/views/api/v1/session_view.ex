@@ -15,7 +15,7 @@ defmodule PhoenixElmBoilerplate.SessionView do
           id: "UNAUTHORIZED",
           title: "401 Unauthorized",
           detail: message,
-          status: 401,
+          status: 401
         }
       ]
     }

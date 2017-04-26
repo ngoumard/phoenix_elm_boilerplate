@@ -29,4 +29,12 @@ defmodule PhoenixElmBoilerplate.V1.UserController do
   end
 
   defp login(user, conn), do: Plug.Conn.assign(conn, :current_user, user)
+
+  def me(conn, _) do
+    current_user = conn.assigns[:current_user]
+
+    conn
+    |> put_status(:ok)
+    |> render(PhoenixElmBoilerplate.UserView, "show.json", user: current_user)
+  end
 end

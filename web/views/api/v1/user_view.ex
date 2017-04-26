@@ -8,6 +8,16 @@ defmodule PhoenixElmBoilerplate.UserView do
     }
   end
 
+  def render("show.json", %{user: user}) do
+    %{
+      id: user.id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      locale: user.locale,
+      email: user.email
+    }
+  end
+
   def render("error.json", %{changeset: changeset}) do
     errors = Enum.map(changeset.errors, fn {field, detail} ->
       %{} |> Map.put(field, render_detail(detail))
