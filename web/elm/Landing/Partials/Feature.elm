@@ -19,8 +19,3 @@ featureView title text_ linkText linkTo =
             text linkText
           ]
       ]
-
--- title: 'E-Commerce',
---     text: 'Recapture sales, recommend products, and make money in your sleep.',
---     linkText: 'Connect Your Store',
---     linkTo
