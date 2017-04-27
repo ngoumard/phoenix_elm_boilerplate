@@ -24,6 +24,20 @@ errorMessage : Maybe (ErrorValue e) -> Html Form.Msg
 errorMessage maybeError =
     case maybeError of
         Just error ->
-            span [ class "error-or-warning error" ] [ text (toString error) ]
+          let
+            errorString =
+              case error of
+                Form.Error.InvalidString ->
+                  "Invalid"
+                Form.Error.Empty ->
+                  "Cannot be blank"
+                Form.Error.InvalidEmail ->
+                  "Invalid email"
+                Form.Error.CustomError errString ->
+                  toString errString
+                _ ->
+                  toString error
+          in
+            span [ class "error-or-warning error" ] [ text errorString ]
         Nothing ->
             text ""
