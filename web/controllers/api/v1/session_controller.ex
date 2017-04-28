@@ -29,7 +29,7 @@ defmodule PhoenixElmBoilerplate.V1.SessionController do
       user && checkpw(password, user.encrypted_password) ->
         {:ok, user}
       user ->
-        {:error, "Your password doesn't match the email #{email}."}
+        {:error, gettext("Your password doesn't match the email")}
       true ->
         dummy_checkpw()
         {:error, "We couldn't find a user with the email #{email}."}
