@@ -13,8 +13,7 @@ update : Msg -> SignupModel -> (SignupModel, Cmd Msg)
 update msg model =
   case msg of
     GetToken (Ok jwt) ->
-        { model | error = "", loading = False }
-        ! [setLocalJWT jwt, newUrl (routeToPath (DashboardRoute)) ]
+        { model | error = "", loading = False } ! []
 
     GetToken (Err error) ->
         { model | error = toString error, loading = False } ! []

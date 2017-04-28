@@ -4,10 +4,21 @@ type alias UserToken = String
 
 type alias User =
   { jwt : UserToken
+  , email : String
   }
 
+type alias Profile =
+  {
+  email : String
+}
 
 userInitialModel : User
 userInitialModel =
-  { jwt = ""
+  { jwt = "", email = ""
+  }
+
+profileInitialModel : Profile
+profileInitialModel =
+  {
+    email = ""
   }

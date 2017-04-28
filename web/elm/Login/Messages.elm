@@ -7,5 +7,6 @@ import Form
 
 type Msg
   = NoOp
-  | GetToken (Result Http.Error UserToken)
-  | FormMsg Form.Msg
+  | LoginSucceeded String
+  | LoginFailed Http.Error
+  | LoginFormMsg Form.Msg

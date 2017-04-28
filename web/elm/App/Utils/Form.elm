@@ -14,9 +14,10 @@ textInput inputType label_ placeholder_ state =
         "input error"
       else
         "input"
+    requiredStar = span [class "required-star"] [text "*"]
   in
     div [ class "forms-input" ]
-        [ label [ class "forms-label" ] [ span [] [ label_ ], errorMessage state.liveError ]
+        [ label [ class "forms-label" ] [ span [] [ label_, requiredStar ], errorMessage state.liveError ]
         , Input.textInput state [ type_ inputType, class inputClass, value (Maybe.withDefault "" state.value), placeholder placeholder_ ]
         ]
 

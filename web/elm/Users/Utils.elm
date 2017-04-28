@@ -15,4 +15,4 @@ checkUserJWT localJWT =
 
 activateUser : UserToken -> User
 activateUser token =
-  { jwt = token }
+  { jwt = token, email = "" }

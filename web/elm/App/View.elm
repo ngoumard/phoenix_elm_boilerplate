@@ -23,7 +23,7 @@ page model =
     page =
       case model.route of
         LandingRoute ->
-          LandingView.view model
+          LandingView.view model model.appLanguage
         SignupRoute ->
           SignupView.view model.signup
             |> Html.map SignupMsg
@@ -31,7 +31,7 @@ page model =
           LoginView.view model.login
             |> Html.map LoginMsg
         DashboardRoute ->
-          DashboardView.view
+          DashboardView.view model
         NotFoundRoute ->
           NotFoundPage.view
   in

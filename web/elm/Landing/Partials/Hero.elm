@@ -5,20 +5,23 @@ import Html.Events exposing (..)
 import Html.Attributes exposing (id, class, href, style)
 import Landing.Partials.NavBar exposing (navBarView)
 import Users.Models exposing (User)
+import App.Messages exposing (..)
 
-heroView : User -> Html msg
-heroView user =
+import App.Translations exposing (Language, translate, TranslationId(Cta, Title, SignupFree, CheckOurFeatures, WantToLearnMore))
+
+heroView : User -> Language -> Html Msg
+heroView user language =
   div [ class "landing-hero" ]
       [ div [ class "masthead" ]
-            [ navBarView user
+            [ navBarView user language
               , h1 [ class "title" ]
-                 [ text "A great value proposition" ]
+                 [ text <| translate language Title ]
               , p [ class "value-proposition" ]
-                  [ text "Join more than 14 million people who use Phoenix & Elm to grow their businesses on their terms." ]
-              , button [ class "button primary", style [("width", "200px")] ] [text "Sign Up Free"]
+                  [ text <| translate language Cta ]
+              , button [ class "button primary", style [("width", "200px")] ] [text <| translate language SignupFree]
               , div [ class "more" ]
-                    [ text "Want to learn more? "
-                    , a [ href "/features", class "shared-link" ] [ text "Check out our features" ]
+                    [ text <| translate language WantToLearnMore
+                    , a [ href "/features", class "shared-link" ] [ text <| translate language CheckOurFeatures ]
                     ]
             ]
 

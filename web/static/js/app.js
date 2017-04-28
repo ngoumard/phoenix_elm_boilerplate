@@ -23,8 +23,22 @@ import Elm from './main';
 const elmDiv = document.querySelector('#root');
 
 if (elmDiv) {
+  var localLanguage = localStorage.getItem('language');
   var localJWT = localStorage.getItem('jwt');
+
+  // If user has not set localLanguage before
+  if(!localLanguage) {
+    // find user navigator language & set it
+    var userLang = navigator.language || navigator.userLanguage;
+    if(userLang == 'fr') {
+      localLanguage = 'French'
+    } else {
+      localLanguage = 'English'
+    }
+  }
+
   var app = Elm.Main.embed(elmDiv, {
+    localLanguage: localLanguage,
     localJWT: localJWT
   });
   app.ports.setLocalJWT.subscribe(function(jwt) {
@@ -35,5 +49,8 @@ if (elmDiv) {
   });
   app.ports.appTitle.subscribe(function(newTitle) {
     document.title = newTitle;
+  });
+  app.ports.setLocalLanguage.subscribe(function(lang) {
+    localStorage.setItem('language', lang);
   });
 }

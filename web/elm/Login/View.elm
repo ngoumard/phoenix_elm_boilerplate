@@ -13,11 +13,10 @@ view loginModel =
     div [ class "auth-login" ]
         [
           div [ class "form-container" ] [
-            Html.map FormMsg (LoginForm.view loginModel)
+            Html.map LoginFormMsg (LoginForm.view loginModel)
             , div [ class "container-forgot" ]
             [
               Link.view "/forgot-password" "" "Forgot password?"
-              , text loginModel.error
             ]
           ]
           , div [ class "illustration" ] [ div [ class "image-container"] []]

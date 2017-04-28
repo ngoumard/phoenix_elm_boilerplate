@@ -23,6 +23,11 @@
     }
   }
 
+  > .form-error {
+    background-color: $color-light-error;
+    padding: $base-padding;
+  }
+
   .container-input {
     padding-top: $base-padding;
     padding-bottom: $base-padding;
