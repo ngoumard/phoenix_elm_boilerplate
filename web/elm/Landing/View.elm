@@ -15,9 +15,9 @@ import Landing.Partials.Footer exposing (footerView)
 
 view : Model -> Language -> Html Msg
 view model language =
-    div [ class "landing-landing" ]
-        [ heroView model.user language
-        , renderFeatures
-        , testimonialView
-        , footerView language
-        ]
+  div [ class "landing-landing" ]
+      [ heroView model.user language
+      , renderFeatures
+      , testimonialView
+      , footerView language
+      ]

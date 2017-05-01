@@ -29,3 +29,17 @@ getWithAuth url decoder token =
     , timeout = Nothing
     , withCredentials = False
     }
+
+encodeUrl : String -> List (String,String) -> String
+encodeUrl baseUrl args =
+  case args of
+    [] ->
+      baseUrl
+
+    _ ->
+      baseUrl ++ "?" ++ String.join "&" (List.map queryPair args)
+
+
+queryPair : (String, String) -> String
+queryPair (key, value) =
+  Http.encodeUri key ++ "=" ++ Http.encodeUri value

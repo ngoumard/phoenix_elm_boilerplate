@@ -24,6 +24,7 @@
     background-color: #fff;
     color: $gray-semi-dark;
     border: 1px solid $gray-light;
+    text-decoration: none;
   }
 
   .google-button {
@@ -37,8 +38,8 @@
   .logo-google {
     position: absolute;
     left: $base-padding;
-    top: 0;
-    height: 100%; // for Safari
+    // top: 0;
+    // height: 100%; // for Safari
   }
 
   .container-forgot {

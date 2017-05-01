@@ -17,3 +17,4 @@ type Msg
   | RemoveLocalJWT
   | FetchCurrentUser
   | ChangeLanguage Language
+  | UserAuthorization (Result Error String)

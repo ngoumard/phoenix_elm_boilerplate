@@ -68,6 +68,9 @@ update msg model =
         ! [ setLocalLanguage <| toString language
           , Navigation.modifyUrl <| routeToPath (model.route)
           ]
-
+    UserAuthorization (Ok jwt) ->
+      { model | user = activateUser jwt } ! [ setLocalJWT jwt, Cmd.map UsersMsg(getCurrentUser jwt) ]
+    UserAuthorization (Err _) ->
+      model ! []
     NoOp ->
       (model, Cmd.none)

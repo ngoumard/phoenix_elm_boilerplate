@@ -32,6 +32,8 @@ page model =
             |> Html.map LoginMsg
         DashboardRoute ->
           DashboardView.view model
+        OAuthCallbackRoute provider ->
+          div [] []
         NotFoundRoute ->
           NotFoundPage.view
   in

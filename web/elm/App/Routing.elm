@@ -11,6 +11,7 @@ type Route
   | LoginRoute
   | SignupRoute
   | DashboardRoute
+  | OAuthCallbackRoute String
   | NotFoundRoute
 
 
@@ -22,6 +23,7 @@ matchers =
     , map LoginRoute       (s "login")
     , map SignupRoute       (s "signup")
     , map DashboardRoute (s "dashboard")
+    , map OAuthCallbackRoute    (s "oauth" </> string)
     ]
 
 
@@ -47,6 +49,8 @@ routeToPath route =
       "/signup"
     DashboardRoute ->
       "/dashboard"
+    OAuthCallbackRoute provider ->
+      "/oauth/" ++ provider
     NotFoundRoute ->
       "/"
 
