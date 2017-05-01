@@ -36,6 +36,15 @@ config :guardian, Guardian,
   serializer: PhoenixElmBoilerplate.GuardianSerializer,
   permissions: %{default: [:read, :write]}
 
+  config :ueberauth, Ueberauth,
+    providers: [
+      google: {Ueberauth.Strategy.Google, [
+        callback_methods: ["POST"],
+        callback_path: "/api/v1/auth/google/callback",
+        callback_url: System.get_env("GOOGLE_AUTH_CALLBACK_URL") || "http://localhost:4000/oauth/google" # Where my Brunch app is running
+      ]}
+    ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

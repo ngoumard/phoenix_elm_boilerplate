@@ -1,5 +1,4 @@
 defmodule PhoenixElmBoilerplate.User do
-  # use Arc.Ecto.Schema
   use PhoenixElmBoilerplate.Web, :model
   import PhoenixElmBoilerplate.ValidationHelpers
   import Comeonin.Bcrypt, only: [hashpwsalt: 1]
@@ -11,7 +10,15 @@ defmodule PhoenixElmBoilerplate.User do
     field :locale, :string
     field :password, :string, virtual: true
     field :encrypted_password, :string
+
+    has_many :authorizations, PhoenixElmBoilerplate.Authorization
+
     timestamps
+  end
+
+  def changeset(user, params \\ %{}) do
+    user
+    |> cast(params, [:first_name, :email, :locale, :last_name])
   end
 
   def signup_changeset(user, params \\ %{}) do

@@ -44,3 +44,5 @@ config :phoenix_elm_boilerplate, PhoenixElmBoilerplate.Repo,
 
 config :phoenix_elm_boilerplate, PhoenixElmBoilerplate.Mailer,
   adapter: Bamboo.LocalAdapter
+
+import_config "dev.secret.exs"

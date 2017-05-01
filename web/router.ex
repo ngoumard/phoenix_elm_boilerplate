@@ -35,6 +35,7 @@ defmodule PhoenixElmBoilerplate.Router do
       pipe_through :api
       post "/login", SessionController, :create
       post "/signup", UserController, :create
+      post "/auth/:provider/callback", AuthController, :callback
     end
 
     scope "/v1", V1, as: :v1 do

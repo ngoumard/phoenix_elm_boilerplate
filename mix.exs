@@ -19,7 +19,7 @@ defmodule PhoenixElmBoilerplate.Mixfile do
   def application do
     [mod: {PhoenixElmBoilerplate, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin, :bamboo]]
+                    :phoenix_ecto, :postgrex, :comeonin, :bamboo, :ueberauth_google, :ueberauth]]
   end
 
   # Specifies which paths to compile per environment.
@@ -40,7 +40,9 @@ defmodule PhoenixElmBoilerplate.Mixfile do
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 3.0"},
      {:guardian, "~> 0.14"},
-     {:bamboo, "~> 0.8"}
+     {:bamboo, "~> 0.8"},
+     {:ueberauth, "~> 0.4"},
+     {:ueberauth_google, "~> 0.5"}
    ]
   end
 
