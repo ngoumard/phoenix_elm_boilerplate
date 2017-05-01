@@ -8,25 +8,20 @@ import Signup.Commands exposing(signup)
 import App.Ports exposing (setLocalJWT)
 import Navigation exposing (newUrl)
 import App.Routing exposing (Route(DashboardRoute), routeToPath)
+import App.Utils.Form exposing (getServerError)
 
 update : Msg -> SignupModel -> (SignupModel, Cmd Msg)
 update msg model =
   case msg of
-    GetToken (Ok jwt) ->
+    SignupSucceeded jwt ->
         { model | error = "", loading = False } ! []
 
-    GetToken (Err error) ->
-        { model | error = toString error, loading = False } ! []
+    SignupFailed error ->
+        { model | error = getServerError error, loading = False } ! []
 
     FormMsg formMsg ->
       case ( formMsg, Form.getOutput model.form ) of
         ( Form.Submit, Just credential ) ->
-            { model
-                |
-                  form = Form.update validate (Form.Input "password" Form.Text <| Field.String "") model.form
-                , loading = True
-                , error = ""
-            }
-                ! [ signup credential ]
+            { model | loading = True, error = "" } ! [ signup credential ]
         _ ->
             { model | form = (Form.update validate formMsg model.form) } ! []

@@ -40,7 +40,7 @@ view loginModel =
         h1 [class "header"] [text "Login in"]
         , div [class "subheader"] [text ("Need an account?" ++ " "), a [href "/signup", class "shared-link link-label"] [text "Create one"] ]
         , formError
-        , dumpErrors loginModel.form
+        -- , dumpErrors loginModel.form
         , div [class "container-input"]
         [
           textInput "text" (text "Email") "Your Email" (Form.getFieldAsString "email" loginModel.form)

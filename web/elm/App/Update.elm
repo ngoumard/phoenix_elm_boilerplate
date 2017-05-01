@@ -44,9 +44,8 @@ update msg model =
           SignupUpdate.update subMsg model.signup
       in
         case subMsg of
-          SignupMsgs.GetToken(Ok jwt) ->
-            { model | signup = newSignupModel } ! [ setLocalJWT jwt, Cmd.map UsersMsg(getCurrentUser jwt), newUrl (routeToPath (DashboardRoute)) ]
-            --  )
+          SignupMsgs.SignupSucceeded jwt ->
+            { model | user = activateUser jwt } ! [ setLocalJWT jwt, Cmd.map UsersMsg(getCurrentUser jwt) ]
           _ ->
             { model | signup = newSignupModel } ! [ Cmd.map SignupMsg cmd ]
 

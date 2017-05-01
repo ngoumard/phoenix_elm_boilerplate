@@ -7,7 +7,6 @@ import App.Utils.Config exposing (apiUrl)
 import App.Utils.Requests exposing (post)
 import Login.Models exposing (Credential, LoginModel, loginModelInit)
 import Login.Messages exposing (Msg(..))
-import Json.Decode.Extra exposing ((|:))
 
 -- HTTP Requests
 
@@ -48,45 +47,3 @@ tokenStringDecoder : Decode.Decoder String
 tokenStringDecoder =
   Decode.map identity
     (field "jwt" Decode.string)
-
--- HELPERS
-
-getPhoenixError : Http.Error -> String
-getPhoenixError error =
-    case error of
-        Http.BadStatus response ->
-          case Decode.decodeString errorListDecoder response.body of
-            Ok errors ->
-              String.concat(errors.errors |> List.map (\err -> ( err.detail )))
-
-            Err er ->
-              "Erreurrr"
-
-        _ ->
-            toString error
-
-type alias ErrorResponse = {
-  title: String,
-  status: Int,
-  id: String,
-  detail: String
-}
-
-type alias ListErrorResponse = {
-  errors : List ErrorResponse
-}
-
-errorListDecoder : Decode.Decoder ListErrorResponse
-errorListDecoder =
-    Decode.succeed
-        ListErrorResponse
-        |: (field "errors" (Decode.list errorDecoder))
-
-errorDecoder : Decode.Decoder ErrorResponse
-errorDecoder =
-    Decode.succeed
-        ErrorResponse
-        |: (field "title" Decode.string)
-        |: (field "status" Decode.int)
-        |: (field "id" Decode.string)
-        |: (field "detail" Decode.string)

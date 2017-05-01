@@ -6,12 +6,21 @@ import Json.Decode as Decode exposing (field)
 import Signup.Models exposing (Credential)
 import App.Utils.Config exposing (apiUrl)
 import App.Utils.Requests exposing (post)
-import Signup.Messages exposing (Msg(GetToken))
+import Signup.Messages exposing (..)
 
 signup : Credential -> Cmd Msg
 signup credential =
     post signupUrlPOST (credentialEncoded credential) tokenStringDecoder
-      |> Http.send GetToken
+      |> Http.send handleSignupComplete
+
+handleSignupComplete : Result Http.Error String -> Msg
+handleSignupComplete result =
+    case result of
+        Ok tokenId ->
+            SignupSucceeded tokenId
+
+        Err error ->
+            SignupFailed error
 
 signupUrlPOST : String
 signupUrlPOST =

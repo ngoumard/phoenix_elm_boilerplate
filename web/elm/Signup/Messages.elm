@@ -6,5 +6,6 @@ import Users.Models exposing (UserToken)
 
 
 type Msg
-    = GetToken (Result Http.Error UserToken)
+    = SignupSucceeded String
+    | SignupFailed Http.Error
     | FormMsg Form.Msg
