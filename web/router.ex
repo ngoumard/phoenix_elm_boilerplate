@@ -41,6 +41,7 @@ defmodule PhoenixElmBoilerplate.Router do
     scope "/v1", V1, as: :v1 do
       pipe_through [:api, :bearer_auth, :ensure_auth, :current_user]
       get "/me", UserController, :me
+      patch "/me", UserController, :update
     end
   end
 

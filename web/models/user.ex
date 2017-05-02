@@ -33,6 +33,11 @@ defmodule PhoenixElmBoilerplate.User do
     |> generate_encrypted_password
   end
 
+  def update_changeset(user, params \\ %{}) do
+    user
+    |> cast(params, [:first_name, :last_name])
+  end
+
   defp generate_encrypted_password(current_changeset) do
     case current_changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: password}} ->

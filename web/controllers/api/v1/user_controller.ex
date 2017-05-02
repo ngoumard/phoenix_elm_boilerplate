@@ -37,4 +37,21 @@ defmodule PhoenixElmBoilerplate.V1.UserController do
     |> put_status(:ok)
     |> render(PhoenixElmBoilerplate.UserView, "show.json", user: current_user)
   end
+
+  def update(conn, params) do
+    current_user = conn.assigns[:current_user]
+
+    changeset = User.update_changeset(current_user, params)
+
+    case Repo.update(changeset) do
+      {:ok, user} ->
+        conn
+        |> put_status(:ok)
+        |> render(PhoenixElmBoilerplate.UserView, "show.json", user: user)
+      {:error, changeset} ->
+        conn
+        |> put_status(:unprocessable_entity)
+        |> render(PhoenixElmBoilerplate.UserView, "error.json", changeset: changeset)
+    end
+  end
 end
